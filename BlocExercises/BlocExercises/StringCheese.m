@@ -10,49 +10,35 @@
 
 @implementation StringCheese
 
+
+
+
 - (NSString *) favoriteCheeseStringWithCheese:(NSString *)cheeseName {
-
-    NSString *favoriteCheese = [NSString stringWithFormat:@"My favorite cheese is %@.", cheeseName];
-    return favoriteCheese;
-}
-
     
-
+    NSString *favCheese = [NSString stringWithFormat:@"My favorite cheese is %@.", cheeseName];
+    
+    return favCheese;
+}
 
 
 
 - (NSString *) cheeseNameWithoutCheeseSuffix:(NSString *)cheeseName {
-    NSString *returnString = cheeseName;
     
-      if ([[cheeseName lowercaseString] hasSuffix:@" cheese"]) {
-        NSRange cheeseRange = [cheeseName rangeOfString:@" cheese" options:NSCaseInsensitiveSearch];
-        returnString = [cheeseName stringByReplacingCharactersInRange:cheeseRange withString:@""];
+    NSString *shortCheese = cheeseName;
+    if ([[shortCheese lowercaseString] hasSuffix:@" cheese"]) {
+    NSRange cheeseRange = [shortCheese  rangeOfString:@" cheese" options:NSCaseInsensitiveSearch];
+    shortCheese = [shortCheese stringByReplacingCharactersInRange:cheeseRange withString:@""];
     }
-    
-    return returnString;
+    return shortCheese;
 }
-
-                               
-
-    
-    
-
 
 
 - (NSString *) numberOfCheesesStringWithCheeseCount:(NSUInteger)cheeseCount {
-    if (cheeseCount == 1) {
-        return [NSString stringWithFormat:@"1 cheese"];
-        // or something like that
-        /* WORK HERE, ASSUMING THERE IS 1 CHEESE */
-    } else {
-        return [NSString stringWithFormat:@"%lu cheeses", cheeseCount];
-        // use NSString stringWithFormat
-        //... @"%d cheeses",cheeseCount
-        /* WORK HERE, ASSUMING THERE ARE 2+ CHEESES */
-    }
+    if (cheeseCount == 1){
+        return [NSString stringWithFormat:@"%ld cheese", cheeseCount];
+    }else
+        return [NSString stringWithFormat:@"%ld cheeses", cheeseCount];
+
 }
-    /*
-     (You will learn more about if/else statements in the next checkpoint.)
-     */
 
 @end
