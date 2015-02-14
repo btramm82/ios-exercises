@@ -11,7 +11,6 @@
 @implementation StarTrekArrays
 
 - (NSArray *) arrayOfStarTrekCharactersFromString:(NSString *)characterString {
-    
     NSString *trekString = characterString;
     NSArray *trekArray = [trekString componentsSeparatedByString:@";"];
     return trekArray;
