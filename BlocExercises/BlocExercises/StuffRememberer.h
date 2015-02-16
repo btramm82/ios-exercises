@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface StuffRememberer : NSObject
+//  These can go here without read only giving everyone access to change my code (Not good practice)
+//  Add read only only if you want outside classes to be able to see the code but not change it.
+//  Duplicate not needed if other classes don't need to see your code.
+
+@property (nonatomic, strong, readonly) NSMutableArray *rememberedArray;
+@property (nonatomic, strong,readonly) NSMutableArray *copiedArray;
+@property (assign,readonly) CGFloat floatToRemember;
 
 /*
  

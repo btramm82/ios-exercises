@@ -20,24 +20,28 @@
 
 - (NSArray *) arrayOfNumbersBetweenNumber:(NSInteger)number andOtherNumber: (NSInteger)otherNumber {
     NSMutableArray *numMutArray = [[NSMutableArray alloc] init];
+    NSInteger lowNumber;
+    NSInteger highNumber;
+    
     if (number < otherNumber) {
-        for (NSInteger i = number; i <= otherNumber; i++) {
-        NSNumber *nextNumber = [NSNumber numberWithInteger:i];
-        [numMutArray addObject:nextNumber];
-        }
-    } else
-        for (NSInteger i = otherNumber; i<= number; i++) {
+        lowNumber = number;
+        highNumber = otherNumber;
+    } else {
+        lowNumber = otherNumber;
+        highNumber = number;
+    }
+    for (NSInteger i = lowNumber; i <= highNumber; i++) {
         NSNumber *nextNumber = [NSNumber numberWithInteger:i];
         [numMutArray addObject:nextNumber];
     }
     return numMutArray;
 }
 
-    
-    
+
+
 
 - (NSInteger) lowestNumberInArray:(NSArray *)arrayOfNumbers {
-    NSInteger number = 0;
+    NSInteger number = [arrayOfNumbers [0] intValue];
     for (NSInteger i = 0; i < arrayOfNumbers.count; i++){
         if (number > [arrayOfNumbers [i] intValue]) {
             number = [arrayOfNumbers [i] intValue];

@@ -8,33 +8,51 @@
 
 #import "StuffRememberer.h"
 
+@interface StuffRememberer()
+// Put property's here so that No One can change my code only this class have ability to change
+@property (nonatomic, strong) NSMutableArray *rememberedArray;
+@property (nonatomic, strong) NSMutableArray *copiedArray;
+@property (assign) CGFloat floatToRemember;
+
+@end
+
 @implementation StuffRememberer
 
 - (void) rememberThisArrayForLater:(NSMutableArray *)arrayToRemember {
-    /* WORK HERE */
+    self.rememberedArray = arrayToRemember;
 }
 
 - (void) copyThisArrayForLater:(NSMutableArray *)arrayToCopy {
-    /* WORK HERE */
+    self.copiedArray = [arrayToCopy mutableCopy];
+    
 }
 
 - (void) rememberThisFloatForLater:(CGFloat)floatToRemember {
-    /* WORK HERE */
+    self.floatToRemember = floatToRemember;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 - (NSMutableArray *) arrayYouShouldRemember {
-    /* WORK HERE */
-    return [@[] mutableCopy];
+    return self.rememberedArray;
 }
 
 - (NSMutableArray *) arrayYouShouldCopy {
-    /* WORK HERE */
-    return [@[] mutableCopy];
+    return self.copiedArray;
 }
 
 - (CGFloat) floatYouShouldRemember {
-    /* WORK HERE */
-    return 0.0f;
+    
+    return self.floatToRemember;
 }
 
 @end

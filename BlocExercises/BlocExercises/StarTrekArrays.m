@@ -11,8 +11,7 @@
 @implementation StarTrekArrays
 
 - (NSArray *) arrayOfStarTrekCharactersFromString:(NSString *)characterString {
-    NSString *trekString = characterString;
-    NSArray *trekArray = [trekString componentsSeparatedByString:@";"];
+    NSArray *trekArray = [characterString componentsSeparatedByString:@";"];
     return trekArray;
     
 }
@@ -20,22 +19,16 @@
 
  
 - (NSString *) stringOfStarTrekCharactersFromArray:(NSArray *)characterArray {
-    NSArray *starArray = characterArray;
-    NSString *starString = [starArray componentsJoinedByString:@";"];
-    return starString;
-    
+    NSString *trekString = [characterArray componentsJoinedByString:@";"];
+    return trekString;
 }
-
-
     
 - (NSArray *) alphabeticallySortedStarTrekCharactersFromArray:(NSArray *)characterArray {
-    NSMutableArray *trekMutArray = [[NSMutableArray alloc] initWithArray:characterArray];
+    NSMutableArray *trekMutArray = [characterArray mutableCopy];
     NSSortDescriptor *trekSort = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
     [trekMutArray sortUsingDescriptors:@[trekSort]];
     return trekMutArray;
-    
 }
-
 
     
     
